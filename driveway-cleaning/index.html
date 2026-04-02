@@ -536,9 +536,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
 
             // Netlify AJAX form submission + GTM event + thank you popup
-            document.querySelectorAll('form[data-netlify="true"]').forEach(function(form) {
+            document.querySelectorAll('form[method="POST"]').forEach(function(form) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
+                    e.stopImmediatePropagation();
                     fetch(window.location.pathname, {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
