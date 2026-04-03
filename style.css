@@ -1577,36 +1577,49 @@ footer {
         grid-template-columns: 1fr;
         gap: 25px;
     }
-
-    /* Mobile Truck Animation Triggered by .truck-trigger */
-    .truck-trigger .truck-img {
-        opacity: 0;
-        transform: translateX(100%) scale(0.9);
-        transition: transform 1.8s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.8s ease;
-    }
-
-    .truck-trigger.in-view .truck-img {
-        opacity: 1;
-        transform: translateX(0) scale(1);
-    }
 }
 
+/* --- Robust Mobile Truck Animation V3 --- */
 .mobile-truck-anim {
+    display: none; /* Desktop default */
     width: 100%;
-    margin: 40px 0;
+    margin: 50px 0;
     text-align: center;
     position: relative;
-    z-index: 5;
-    overflow: hidden; /* Capture the horizontal movement */
-    padding: 20px 0;
-    display: none; /* Hidden by default, shown by .mobile-only in media query */
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .mobile-truck-anim {
+        display: block !important;
+    }
 }
 
 .truck-img {
     width: 85%;
-    max-width: 450px;
+    max-width: 420px;
     height: auto;
     display: block;
     margin: 0 auto;
     filter: drop-shadow(0 15px 35px rgba(0,0,0,0.2));
+    opacity: 0;
+    transform: translateX(100vw);
+}
+
+.truck-trigger.in-view .truck-img {
+    animation: truck-drive-in 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes truck-drive-in {
+    0% {
+        opacity: 0;
+        transform: translateX(100vw) scale(0.9);
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
 }
