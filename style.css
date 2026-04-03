@@ -1579,43 +1579,44 @@ footer {
     }
 }
 
-/* --- Robust Mobile Truck Animation V3 --- */
-.mobile-truck-anim {
-    display: none; /* Desktop default */
+/* --- Hero Mobile Truck Animation V4 --- */
+.mobile-truck-anim-hero {
+    display: none; /* Hide on desktop */
     width: 100%;
-    margin: 50px 0;
+    margin-top: 25px;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
 
 @media (max-width: 768px) {
-    .mobile-truck-anim {
+    .mobile-truck-anim-hero {
         display: block !important;
     }
 }
 
-.truck-img {
-    width: 85%;
-    max-width: 420px;
+.truck-img-hero {
+    width: 80%;
+    max-width: 380px;
     height: auto;
     display: block;
     margin: 0 auto;
-    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15));
     opacity: 0;
-    transform: translateX(100vw);
+    transform: translateX(-100vw); /* Drive in from LEFT */
 }
 
-.truck-trigger.in-view .truck-img {
-    animation: truck-drive-in 2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+/* Delay it by 0.5s so the user sees it finish after page load */
+.truck-trigger.in-view .truck-img-hero {
+    animation: truck-drive-from-left 2s cubic-bezier(0.19, 1, 0.22, 1) 0.8s forwards;
 }
 
-@keyframes truck-drive-in {
+@keyframes truck-drive-from-left {
     0% {
         opacity: 0;
-        transform: translateX(100vw) scale(0.9);
+        transform: translateX(-100vw) scale(0.9);
     }
-    30% {
+    40% {
         opacity: 1;
     }
     100% {
