@@ -761,6 +761,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     })
                     .then(() => {
                         // Kick back a tag by triggering a custom event or adding a data attribute
+                        window.dataLayer.push({'event': 'form_submit'});
                         document.body.setAttribute('data-form-status', 'form_submit');
                         window.dispatchEvent(new CustomEvent('form-submit-success'));
                         
