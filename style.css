@@ -27,7 +27,7 @@ html {
 }
 
 #quote-form {
-    scroll-margin-top: 150px;
+    scroll-margin-top: 100px;
 }
 
 body {
@@ -61,6 +61,10 @@ html, body {
 }
 
 @media (max-width: 768px) {
+    #quote-form {
+        scroll-margin-top: 150px;
+    }
+
     .mobile-only {
         display: block !important;
     }
