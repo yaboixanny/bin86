@@ -886,6 +886,17 @@ footer {
         font-size: 2.5rem;
     }
 
+    .hero-subtext {
+        font-size: 1.05rem;
+    }
+
+    .team-gallery-title {
+        font-size: 1.75rem;
+        max-width: 320px;
+        line-height: 1.1;
+        margin: 0 auto;
+    }
+
     .section-header h2 {
         font-size: 2rem;
     }
@@ -1596,6 +1607,37 @@ footer {
 @media (max-width: 768px) {
     .mobile-truck-anim-hero {
         display: block !important;
+    }
+
+    #final-call-btn {
+        padding: 18px 24px !important;
+        font-size: 1rem !important;
+        gap: 10px !important;
+        white-space: nowrap;
+    }
+
+    #final-call-btn svg {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    #final-text-btn {
+        padding: 18px 24px !important;
+        font-size: 0.95rem !important;
+        gap: 10px !important;
+    }
+
+    #final-text-btn svg {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .final-cta h2 {
+        font-size: 1.95rem !important;
+    }
+
+    .final-cta p {
+        font-size: 0.95rem !important;
     }
 }
 
