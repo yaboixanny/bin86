@@ -65,6 +65,10 @@ html, body {
         scroll-margin-top: 150px;
     }
 
+    .header-booking-btn {
+        display: none !important;
+    }
+
     .mobile-only {
         display: block !important;
     }
@@ -177,6 +181,31 @@ html, body {
     text-decoration: none;
     font-weight: 700;
     font-size: 1.1rem;
+}
+
+.header-booking-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 50px;
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 4px 14px rgba(95, 200, 32, 0.3);
+    transition: var(--transition);
+}
+
+.header-booking-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(95, 200, 32, 0.4);
+}
+
+.header-booking-btn svg {
+    width: 18px;
+    height: 18px;
 }
 
 /* Buttons */
@@ -362,6 +391,43 @@ html, body {
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 45px;
     font-weight: 500;
+}
+
+.hero-trust-bar {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.hero-trust-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    min-height: 76px;
+}
+
+.hero-trust-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 0.95rem;
+    letter-spacing: 0.01em;
+}
+
+.hero-trust-item + .hero-trust-item {
+    border-left: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.hero-trust-item strong {
+    color: var(--white);
+}
+
+.hero-trust-item span {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.85rem;
+    white-space: nowrap;
 }
 
 .btn-hero {
@@ -888,6 +954,31 @@ footer {
 
     .hero-subtext {
         font-size: 1.05rem;
+    }
+
+    .hero-trust-list {
+        grid-template-columns: repeat(2, 1fr);
+        min-height: auto;
+        padding: 8px 0;
+    }
+
+    .hero-trust-item {
+        flex-direction: column;
+        gap: 2px;
+        padding: 14px 10px;
+        font-size: 0.85rem;
+    }
+
+    .hero-trust-item + .hero-trust-item {
+        border-left: 0;
+    }
+
+    .hero-trust-item:nth-child(even) {
+        border-left: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .hero-trust-item:nth-child(n + 3) {
+        border-top: 1px solid rgba(255, 255, 255, 0.22);
     }
 
     .team-gallery-title {
