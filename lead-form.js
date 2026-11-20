@@ -80,15 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (child !== submitButton) details.appendChild(child);
         });
 
-        const email = details.querySelector('input[type="email"]');
-        const notes = details.querySelector('textarea');
-        if (email) email.required = false;
-        if (notes) {
-            notes.required = false;
-            notes.placeholder = 'Anything else we should know? (optional)';
-            const notesLabel = details.querySelector('label[for="needs"]');
-            if (notesLabel) notesLabel.textContent = 'Anything else we should know? (optional)';
-        }
+        const emailField = details.querySelector('input[type="email"]')?.closest('.input-field');
+        const notesField = details.querySelector('textarea')?.closest('.input-field');
+        if (emailField) emailField.remove();
+        if (notesField) notesField.remove();
 
         const firstStep = document.createElement('div');
         firstStep.className = 'lead-form-step lead-form-start';
