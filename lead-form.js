@@ -22,6 +22,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.desktop-cta-container').forEach((cta) => cta.remove());
 
+    document.querySelectorAll('.owner-cta a').forEach((link) => {
+        link.removeAttribute('onclick');
+        link.addEventListener('click', (event) => {
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'conversion', { send_to: 'AW-852974928/p6guCNbJqZwcENC63ZYD' });
+                }
+                return;
+            }
+
+            event.preventDefault();
+            document.getElementById('quote-form')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+    });
+
+    document.querySelectorAll('#reviews-call-btn').forEach((link) => {
+        link.removeAttribute('onclick');
+        if (!window.matchMedia('(max-width: 768px)').matches) {
+            link.textContent = 'Get Your Junk Removal Quote';
+        }
+
+        link.addEventListener('click', (event) => {
+            if (window.matchMedia('(max-width: 768px)').matches) {
+                if (typeof window.gtag === 'function') {
+                    window.gtag('event', 'conversion', { send_to: 'AW-852974928/p6guCNbJqZwcENC63ZYD' });
+                }
+                return;
+            }
+
+            event.preventDefault();
+            document.getElementById('quote-form')?.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        });
+    });
+
     document.querySelectorAll('.hero-actions-container').forEach((actions) => {
         const certainty = document.createElement('p');
         certainty.className = 'hero-price-certainty';
@@ -31,13 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.hero-content a[href*="maps.app.goo.gl"] span:last-child').forEach((rating) => {
         rating.textContent = '5.0 Google Rating · 150+ Reviews';
-    });
-
-    document.querySelectorAll('.hero-trust-list').forEach((list) => {
-        const items = list.querySelectorAll('.hero-trust-item');
-        if (items[0]) items[0].innerHTML = '<strong>5.0 Google Rating</strong><span>150+ reviews</span>';
-        if (items[1]) items[1].innerHTML = '<strong>Pickups from $99</strong><span>Final price confirmed first</span>';
-        if (items[3]) items[3].innerHTML = '<strong>Reliable, On-Time Service</strong>';
     });
 
     document.querySelectorAll('.team-grid img, .reviews-grid-v2 img').forEach((image) => {
@@ -72,50 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('#lead-form').forEach((form) => {
         const submitButton = form.querySelector('button[type="submit"]');
-        const details = document.createElement('div');
-        details.className = 'lead-form-step lead-form-details';
-        details.hidden = true;
-
-        [...form.children].forEach((child) => {
-            if (child !== submitButton) details.appendChild(child);
-        });
-
-        const emailField = details.querySelector('input[type="email"]')?.closest('.input-field');
-        const notesField = details.querySelector('textarea')?.closest('.input-field');
-        if (emailField) emailField.remove();
-        if (notesField) notesField.remove();
-
-        const firstStep = document.createElement('div');
-        firstStep.className = 'lead-form-step lead-form-start';
-        firstStep.innerHTML = `
-            <p class="lead-form-kicker">Step 1 of 2</p>
-            <label for="item-type">What do you need removed?</label>
-            <select id="item-type" name="item_type" required>
-                <option value="" selected disabled>Select an option</option>
-                <option>Furniture or mattress</option>
-                <option>Appliance</option>
-                <option>Household junk</option>
-                <option>Renovation debris</option>
-                <option>Estate or business cleanup</option>
-                <option>Something else</option>
-            </select>
-            <button type="button" class="btn btn-primary form-next-button">Check Same-Day Availability</button>
-            <p class="lead-form-note">No obligation. We confirm your price before any work starts.</p>
-        `;
-
-        form.insertBefore(firstStep, submitButton);
-        form.insertBefore(details, submitButton);
-        submitButton.hidden = true;
         submitButton.querySelector('span').textContent = 'Get My Price';
-
-        firstStep.querySelector('.form-next-button').addEventListener('click', () => {
-            const itemType = firstStep.querySelector('select');
-            if (!itemType.reportValidity()) return;
-            firstStep.hidden = true;
-            details.hidden = false;
-            submitButton.hidden = false;
-            details.querySelector('input[type="text"]').focus();
-        });
 
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
@@ -157,6 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 form.reset();
+                submitButton.disabled = false;
+                submitButton.querySelector('span').textContent = 'Get My Price';
             } catch (submissionError) {
                 console.error(submissionError);
                 error.hidden = false;
