@@ -13,7 +13,8 @@
 </script>
 <script>
   gtag('config', 'AW-852974928/p6guCNbJqZwcENC63ZYD', {
-    'phone_conversion_number': '(604) 259-1386'
+    'phone_conversion_number': '(604) 259-1386',
+    'phone_conversion_callback': function(formatted, mobile) { window.bin86PhoneSwap = [formatted, mobile]; if (window.applyGooglePhoneNumber) window.applyGooglePhoneNumber(formatted, mobile); }
   });
 </script>
 <!-- Google Tag Manager -->
@@ -122,7 +123,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <ul class="hero-subtext" style="list-style: none; padding: 0; text-align: left;">
                         <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; text-align: left;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Same-day junk pickup available
+                            Crews available right now — same-day pickup
                         </li>
                         <li style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; text-align: left;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -130,7 +131,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </li>
                         <li style="display: flex; align-items: center; gap: 10px; text-align: left;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                            Serving Burnaby &amp; surrounding areas
+                            Pickups from $99. Final price confirmed before we start.
                         </li>
                     </ul>
 
@@ -179,13 +180,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <!-- Mobile Truck Anim (Hero) -->
                         <div class="mobile-truck-anim-hero mobile-only truck-trigger">
                             <img src="truck.webp" alt="BIN86JUNK Removal Truck" class="truck-img-hero">
-                        </div>
-                    </div>
-
-                    <div class="desktop-only" style="margin-top: 16px;">
-                        <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(255, 255, 255, 0.95); padding: 10px 20px; border-radius: 50px; box-shadow: var(--shadow-sm); border: 1px solid rgba(0,0,0,0.05);">
-                            <span class="pulse-dot" style="width: 10px; height: 10px;"></span>
-                            <span style="font-size: 0.95rem; font-weight: 700; color: var(--text-main);">Crews available right now — same-day pickup</span>
                         </div>
                     </div>
                 </div>

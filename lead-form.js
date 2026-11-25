@@ -1,3 +1,25 @@
+window.applyGooglePhoneNumber = function (formattedNumber, mobileNumber) {
+    const phone = mobileNumber || formattedNumber.replace(/[^\d+]/g, '');
+    window.bin86ForwardingNumber = phone;
+    const apply = () => {
+        document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+            link.href = 'tel:' + phone;
+        });
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) {
+            const node = walker.currentNode;
+            if (!node.parentElement.closest('script, style, noscript')) {
+                node.nodeValue = node.nodeValue.replace(/\(604\) 259-1386/g, formattedNumber);
+            }
+        }
+    };
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', apply, { once: true });
+    } else {
+        apply();
+    }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     const conversionEvent = 'form_submit';
 
@@ -62,13 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    document.querySelectorAll('.hero-actions-container').forEach((actions) => {
-        const certainty = document.createElement('p');
-        certainty.className = 'hero-price-certainty';
-        certainty.textContent = 'Pickups from $99. Final price confirmed before we start.';
-        actions.insertAdjacentElement('afterend', certainty);
-    });
-
     document.querySelectorAll('.hero-content a[href*="maps.app.goo.gl"] span:last-child').forEach((rating) => {
         rating.textContent = '5.0 Google Rating · 150+ Reviews';
     });
@@ -102,6 +117,10 @@ document.addEventListener('DOMContentLoaded', () => {
             links[1].textContent = 'Call';
         }
     });
+
+    if (window.bin86PhoneSwap) {
+        window.applyGooglePhoneNumber(...window.bin86PhoneSwap);
+    }
 
     document.querySelectorAll('#lead-form').forEach((form) => {
         const submitButton = form.querySelector('button[type="submit"]');
