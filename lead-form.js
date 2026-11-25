@@ -24,17 +24,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const conversionEvent = 'form_submit';
 
     document.querySelectorAll('.header-booking-btn').forEach((link) => {
-        link.innerHTML = 'Check Availability <span aria-hidden="true">&#8594;</span>';
+        link.innerHTML = 'Get a Quote <span aria-hidden="true">&#8594;</span>';
     });
 
     document.querySelectorAll('#hero-quote-btn, .floating-cta-v2').forEach((link) => {
-        link.textContent = 'Check Same-Day Availability';
+        link.textContent = 'Get My Junk Removal Quote';
     });
 
     document.querySelectorAll('#hero-call-btn').forEach((link) => {
         link.href = '#quote-form';
         link.removeAttribute('onclick');
-        link.textContent = 'Check Same-Day Availability';
+        link.textContent = 'Get My Junk Removal Quote';
     });
 
     document.querySelectorAll('#hero-text-btn').forEach((link) => {
