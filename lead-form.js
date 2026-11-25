@@ -42,7 +42,48 @@ document.addEventListener('DOMContentLoaded', () => {
         link.textContent = 'Call';
     });
 
-    document.querySelectorAll('.desktop-cta-container').forEach((cta) => cta.remove());
+    document.querySelectorAll('.floating-cta-v2').forEach((link) => {
+        link.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 3l14 9-7 1-3 7z"/></svg> Get a Quote';
+    });
+
+    const heroContainer = document.querySelector('.hero-container');
+    const originalForm = document.getElementById('lead-form');
+    if (heroContainer && originalForm) {
+        const panel = document.createElement('div');
+        panel.className = 'hero-quote-panel';
+        panel.innerHTML = '<h2>Get a Free, Upfront Price</h2><p>Tell us what you need removed.</p>';
+        const heroForm = originalForm.cloneNode(true);
+        heroForm.id = 'hero-lead-form';
+        heroForm.querySelectorAll('[id]').forEach((field) => {
+            const label = heroForm.querySelector('label[for="' + field.id + '"]');
+            if (label) label.htmlFor = 'hero-' + field.id;
+            field.id = 'hero-' + field.id;
+        });
+        panel.appendChild(heroForm);
+        heroContainer.appendChild(panel);
+    }
+
+    const heroEyebrow = document.querySelector('.hero-content > p');
+    if (heroEyebrow) {
+        const desktopLabel = document.createElement('span');
+        desktopLabel.className = 'hero-desktop-label';
+        desktopLabel.textContent = 'Benny 86 Junk';
+        const mobileLabel = document.createElement('span');
+        mobileLabel.className = 'hero-mobile-label';
+        mobileLabel.textContent = heroEyebrow.textContent;
+        heroEyebrow.replaceChildren(desktopLabel, mobileLabel);
+    }
+
+    document.querySelectorAll('.owner-cta a').forEach((link) => {
+        const mobileText = link.textContent;
+        const syncLabel = () => { link.textContent = window.matchMedia('(max-width: 768px)').matches ? mobileText : 'Get a Junk Removal Quote'; };
+        syncLabel();
+        window.matchMedia('(max-width: 768px)').addEventListener('change', syncLabel);
+    });
+
+    document.querySelectorAll('.owner-title').forEach((title) => {
+        title.innerHTML = title.innerHTML.replace('Your Best Choice for ', '');
+    });
 
     document.querySelectorAll('.owner-cta a').forEach((link) => {
         link.removeAttribute('onclick');
@@ -122,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.applyGooglePhoneNumber(...window.bin86PhoneSwap);
     }
 
-    document.querySelectorAll('#lead-form').forEach((form) => {
+    document.querySelectorAll('#lead-form, #hero-lead-form').forEach((form) => {
         const submitButton = form.querySelector('button[type="submit"]');
         submitButton.querySelector('span').textContent = 'Get My Price';
 

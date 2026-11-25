@@ -335,6 +335,67 @@ html, body {
     margin: 0;
 }
 
+.hero-quote-panel {
+    display: none;
+}
+
+.hero-desktop-label {
+    display: none;
+}
+
+@media (min-width: 769px) {
+    a[href^="sms:"] {
+        display: none !important;
+    }
+
+    .hero-container {
+        justify-content: space-between;
+        gap: 36px;
+    }
+
+    .hero-quote-panel {
+        display: block;
+        width: min(43%, 480px);
+        padding: 26px;
+        border-radius: 22px;
+        background: #fff;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-quote-panel h2 {
+        margin: 0 0 4px;
+        color: var(--primary);
+        font-size: 1.5rem;
+    }
+
+    .hero-quote-panel p {
+        margin: 0 0 14px;
+        color: var(--text-light);
+    }
+
+    .hero-quote-panel .premium-form {
+        gap: 10px;
+    }
+
+    .hero-quote-panel .premium-form input,
+    .hero-quote-panel .premium-form textarea {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+
+    .hero-quote-panel .submit-btn-v2 {
+        padding: 12px;
+    }
+
+    .hero-desktop-label {
+        display: inline;
+    }
+
+    .hero-mobile-label {
+        display: none;
+    }
+}
+
 .hero-content h1 {
     font-size: 3.8rem;
     line-height: 1.1;
