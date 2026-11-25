@@ -181,8 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
             links[0].addEventListener('click', trackCall);
         }
         if (links[1]) {
-            links[1].href = '#quote-form';
-            links[1].textContent = 'Check Availability';
+            links[1].remove();
         }
     });
 
