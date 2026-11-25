@@ -62,7 +62,7 @@ html, body {
 
 @media (max-width: 768px) {
     #quote-form {
-        scroll-margin-top: 150px;
+        scroll-margin-top: 80px;
     }
 
     .header-booking-btn {
@@ -358,7 +358,7 @@ html, body {
         width: min(43%, 480px);
         padding: 26px;
         border-radius: 22px;
-        background: #fff;
+        background: rgba(255, 255, 255, 0.93);
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
     }
 
@@ -393,6 +393,33 @@ html, body {
 
     .hero-mobile-label {
         display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-right .phone-link {
+        display: inline-flex !important;
+        justify-content: center;
+        padding: 10px 14px;
+        border-radius: 50px;
+        background: var(--accent);
+        color: var(--white);
+        font-size: 0.9rem;
+    }
+
+    #hero-text-btn {
+        border: 0;
+        background: transparent;
+        color: #fff;
+        box-shadow: none;
+        text-decoration: underline;
+        padding: 8px;
+    }
+
+    .mobile-cta-bar .btn {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+        gap: 5px;
     }
 }
 
